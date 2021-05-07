@@ -1,6 +1,7 @@
 ## Descriptive changelog
 (All dates are DD.MM.YYYY)
 ##### 0.3.1-SNAPSHOT
+- Fixed wrong exponent when one operand is zero and other has a negative exponent.
 
 
 ##### 0.3.0 - 17.4.2021

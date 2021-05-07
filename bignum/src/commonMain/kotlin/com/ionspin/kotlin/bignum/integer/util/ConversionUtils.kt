@@ -48,8 +48,8 @@ fun ULong.toBigEndianUByteArray(): UByteArray {
 }
 
 fun UByteArray.fromBigEndianArrayToULong(): ULong {
-    if (this.size > 8) {
-        throw RuntimeException("ore than 8 bytes in input, potential overflow")
+    if (this.size != 8) {
+        throw RuntimeException("Invalid number of bytes for ULong input, required 8")
     }
     var ulong = this.foldIndexed(0UL) {
             index, acc, uByte -> acc or (uByte.toULong() shl (56 - (index * 8)))
@@ -64,8 +64,8 @@ fun ULong.toLittleEndianUByteArray(): UByteArray {
 }
 
 fun UByteArray.fromLittleEndianArrayToULong(): ULong {
-    if (this.size > 8) {
-        throw RuntimeException("More than 8 bytes in input, potential overflow")
+    if (this.size != 8) {
+        throw RuntimeException("Invalid number of bytes for ULong input, required 8")
     }
     var ulong = this.foldIndexed(0UL) { index, acc, uByte -> acc or (uByte.toULong() shl (index * 8)) }
     return ulong
