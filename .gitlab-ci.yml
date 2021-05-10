@@ -7,7 +7,7 @@ workflow:
   rules:
     - if: $CI_EXTERNAL_PULL_REQUEST_IID
     - if: $CI_COMMIT_TAG
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == "1.4.32"
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
